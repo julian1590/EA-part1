@@ -225,14 +225,14 @@ class OptimizationSpecialist:
                 not_improved += 1
             else:
                 last_sol = best_sol
-            not_improved = 0
+                not_improved = 0
 
-            if not_improved >= 15:
+            if not_improved >= 7:
                 with open(self.config.experiment_name + '/results.txt', 'a') as f:
                     f.write('\n purge')
 
-            pop, fit_pop = self.purge(pop, fit_pop)
-            not_improved = 0
+                pop, fit_pop = self.purge(pop, fit_pop)
+                not_improved = 0
 
             best = np.argmax(fit_pop)
             std = np.std(fit_pop)
