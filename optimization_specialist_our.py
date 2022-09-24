@@ -59,10 +59,10 @@ class OptimizationSpecialist:
     def evaluate(self, x):
         return np.array(list(map(lambda y: self.simulation(self.env, y), x)))
 
-    def tournament(self, pop, fit_pop, tourn_size, k=2):
+    def tournament(self, pop, fit_pop, k=2):
         selected = []
         for i in range(k):
-            children_indices = np.random.randint(0, pop.shape[0], tourn_size)
+            children_indices = np.random.randint(0, pop.shape[0], self.config.tournament_size)
             children_fit = [fit_pop[i] for i in children_indices]
             fittest_child = np.argmax(children_fit)
             fittest_index = children_indices[fittest_child]
@@ -107,10 +107,10 @@ class OptimizationSpecialist:
 
     def mutGuass(self, offsp):
         size = len(offsp)
-        for i, m, s in zip(range(size), self.config.mu, self.config.sigma):
+        for i in range(size):
             if np.random.random() < self.config.mutation_prob:
                 offsp[i] += random.gauss(self.config.mu, self.config.sigma)
-        return offsp,
+        return offsp
 
     def mutPolinomialBounded(self, offsp, eta=0.35, lower_bound=0, upper_bound=1):
         """Polinomial bounded mutation implemetation taken from the DEAP framework"""
@@ -133,29 +133,29 @@ class OptimizationSpecialist:
                 x = x + delta_q * (xu - xl)
                 x = min(max(x, xl), xu)
                 offsp[i] = x
-        return offsp,
+        return offsp
 
     # crossover
     def kissland(self, pop, fit_pop):
         total_offspring = np.zeros((0, self.n_weights))
         for p in range(0, pop.shape[0], 2):
-            parent1, parent2 = self.tournament(pop, fit_pop, self.config.tournament_percentage)
-
-            n_offspring = np.random.randint(1, 3 + 1, 1)[0]
-            offspring = np.zeros((n_offspring, self.n_weights))
-            for f in range(0, n_offspring):
-                cross_prop = np.random.uniform(0, 1)
+            # Selection
+            parent1, parent2 = self.tournament(pop, fit_pop)
+            n_offsp = np.random.randint(1, 4, 1)[0]
+            offsp = np.zeros((n_offsp, self.n_weights))
+            for f in range(0, n_offsp):
+                # Crossover
                 if self.config.crossover_algorithm == 'two_point':
-                     p1, p2 = self.twoPointCrossover(p1, p2)
+                    parent1, parent2 = self.twoPointCrossover(parent1, parent2)
                 elif self.config.crossover_algorithm == 'k_point':
-                    p1, p2 = self.kPointCrossover(p1, p2, 15)
-                offspring[f] = p1 + p2
+                    parent1, parent2 = self.kPointCrossover(parent1, parent2, 15)
+                offsp[f] = parent1 + parent2
+                # Mutation
                 if self.config.mutation_algorithm == "gauss":
-                    total_offspring  = self.mutGuass(offspring)
+                    final_offsp  = self.mutGuass(offsp)
                 elif self.config.mutation_algorithm == "polinomial":
-                    total_offspring = self.mutPolinomialBounded(offspring)
-
-        return total_offspring
+                    final_offsp = self.mutPolinomialBounded(offsp)
+        return final_offsp
 
     # kills the worst genomes, and replace with new best/random solutions
     def purge(self, pop, fit_pop):
@@ -187,79 +187,74 @@ class OptimizationSpecialist:
             print(f'\n GENERATION {str(ini_g)} - {str(round(fit_pop[best], 6))} {str(round(mean, 6))} {str(round(std, 6))}')
             f.write(f'\n GENERATION {str(ini_g)} | {str(round(fit_pop[best], 6))} | {str(round(mean, 6))} | {str(round(std, 6))}')
 
-            last_sol = fit_pop[best]
+        last_sol = fit_pop[best]
+        not_improved = 0
+        for i in range(ini_g + 1, self.config.generations):
+            offspring = self.kissland(pop, fit_pop)
+            fit_offspring = self.evaluate(offspring)
+            pop = np.vstack((pop, offspring))
+            fit_pop = np.append(fit_pop, fit_offspring)
 
+            best = np.argmax(fit_pop)
+            fit_pop[best] = float(self.evaluate(np.array([pop[best]]))[0])
+            best_sol = fit_pop[best]
+
+            # selection
+            fit_pop_cp = fit_pop
+            fit_pop_norm = np.array(list(map(lambda y: self.normalize(y, fit_pop_cp), fit_pop)))
+            probs = (fit_pop_norm) / (fit_pop_norm).sum()
+            chosen = np.random.choice(pop.shape[0], self.config.n_pop, p=probs, replace=False)
+            chosen = np.append(chosen[1:], best)
+            pop = pop[chosen]
+            fit_pop = fit_pop[chosen]
+
+            # searching new areas
+
+            if best_sol <= last_sol:
+                not_improved += 1
+            else:
+                last_sol = best_sol
             not_improved = 0
-            for i in range(ini_g + 1, self.config.generations):
-                offspring = self.kissland(pop, fit_pop)
-                fit_offspring = self.evaluate(offspring)
-                pop = np.vstack((pop, offspring))
-                fit_pop = np.append(fit_pop, fit_offspring)
 
-                best = np.argmax(fit_pop)
-                fit_pop[best] = float(self.evaluate(np.array([pop[best]]))[0])
-                best_sol = fit_pop[best]
-
-                # selection
-                fit_pop_cp = fit_pop
-                fit_pop_norm = np.array(list(map(lambda y: self.normalize(y, fit_pop_cp), fit_pop)))
-                probs = (fit_pop_norm) / (fit_pop_norm).sum()
-                chosen = np.random.choice(pop.shape[0], self.config.n_pop, p=probs, replace=False)
-                chosen = np.append(chosen[1:], best)
-                pop = pop[chosen]
-                fit_pop = fit_pop[chosen]
-
-                # searching new areas
-
-                if best_sol <= last_sol:
-                    not_improved += 1
-                else:
-                    last_sol = best_sol
-                not_improved = 0
-
-                if not_improved >= 15:
-                    file_aux = open(self.config.experiment_name + '/results.txt', 'a')
-                file_aux.write('\n purge')
-                file_aux.close()
-
-                pop, fit_pop = self.purge(pop, fit_pop)
-                not_improved = 0
-
-                best = np.argmax(fit_pop)
-                std = np.std(fit_pop)
-                mean = np.mean(fit_pop)
-
-                # saves results
+            if not_improved >= 15:
                 with open(self.config.experiment_name + '/results.txt', 'a') as f:
-                    print(f'\n GENERATION {str(i)} {str(round(fit_pop[best], 6))} {str(round(mean, 6))} {str(round(std, 6))}')
-                    f.write(f'\n {str(i)} {str(round(fit_pop[best], 6))} {str(round(mean, 6))}  {str(round(std, 6))}')
+                    f.write('\n purge')
 
-                # saves generation number
-                with open(self.config.experiment_name + '/gen.txt', 'w') as f:
-                    f.write(str(i))
+            pop, fit_pop = self.purge(pop, fit_pop)
+            not_improved = 0
 
-                # saves file with the best solution
-                np.savetxt(self.config.experiment_name + '/best.txt', pop[best])
+            best = np.argmax(fit_pop)
+            std = np.std(fit_pop)
+            mean = np.mean(fit_pop)
 
-                # saves simulation state
-                solutions = [pop, fit_pop]
-                self.env.update_solutions(solutions)
-                self.env.save_state()
+            # saves results
+            with open(self.config.experiment_name + '/results.txt', 'a') as f:
+                print(f'\n GENERATION {str(i)} {str(round(fit_pop[best], 6))} {str(round(mean, 6))} {str(round(std, 6))}')
+                f.write(f'\n {str(i)} {str(round(fit_pop[best], 6))} {str(round(mean, 6))}  {str(round(std, 6))}')
 
-            end = time.time()
-            print(f'\nRun time: {str(round((end - start) / 60))} minutes \n')
+            # saves generation number
+            with open(self.config.experiment_name + '/gen.txt', 'w') as f:
+                f.write(str(i))
 
-            file = open(self.config.experiment_name + '/neuroended', 'w')
-            file.close()
+            # saves file with the best solution
+            np.savetxt(self.config.experiment_name + '/best.txt', pop[best])
 
-            self.env.state_to_log()
+            # saves simulation state
+            solutions = [pop, fit_pop]
+            self.env.update_solutions(solutions)
+            self.env.save_state()
+
+        end = time.time()
+        print(f'\nRun time: {str(round((end - start) / 60))} minutes \n')
+
+        file = open(self.config.experiment_name + '/neuroended', 'w')
+        file.close()
+
+        self.env.state_to_log()
 
 if __name__ == '__main__':
     opt = OptimizationSpecialist()
-    pop = np.random.uniform(0, 1, (100, 10))
-    pop_fit = np.random.uniform(0, 100, (100))
-    opt.tournament(pop, pop_fit, 10, 40)
-    # opt.run()
+    opt.run()
 
 
 
