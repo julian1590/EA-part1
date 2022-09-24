@@ -91,7 +91,7 @@ class OptimizationSpecialist:
         size = min(len(ind1), len(ind2))
         if k > size:
             k = size
-        cxpoints = []
+        cpoints = []
         while (len(cxpoints) < k):
             num = np.random.randint(0, size)
             if num not in cxpoints:

@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/plot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/specialist_config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/specialist_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/optimization_specialist_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_specialist_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/optimization_specialist_our.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_specialist_our.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
