@@ -1,0 +1,21 @@
+{
+  "enemies": [2],
+  "playermode": "ai",
+  "n_hidden_neurons": 10,
+  "enemymode": "static",
+  "level": 2,
+  "speed": "fastest",
+  "headless": true,
+
+  "run_mode": "train",
+  "dom_u" : 1,
+  "dom_l" : -1,
+  "npop" : 100,
+  "generations" : 30,
+  "mutation_rate" : 0.2,
+
+  "mutation_algorithm": "gauss",
+  "k_points": 10,
+  "mu": 0.5,
+  "sigma": 0.2
+}
