@@ -139,7 +139,7 @@ class OptimizationSpecialist:
     def kissland(self, pop, fit_pop):
         total_offspring = np.zeros((0, self.n_weights))
         for p in range(0, pop.shape[0], 2):
-            parent1, parent2 = self.tournament(pop, fit_pop, self.config.tourn_size)
+            parent1, parent2 = self.tournament(pop, fit_pop, self.config.tournament_percentage)
 
             n_offspring = np.random.randint(1, 3 + 1, 1)[0]
             offspring = np.zeros((n_offspring, self.n_weights))

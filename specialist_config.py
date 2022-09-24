@@ -28,6 +28,7 @@ class SpecialistConfig:
         self.mutation_algorithm = self.params["mutation_algorithm"]
         self.crossover_algorithm = self.params["crossover_algorithm"]
         self.tournament_percentage = self.params["tournament_percentage"]
+        self.tournament_size = int(self.n_pop * self.tournament_percentage)
         self.experiment_name = self.create_experiment_name()
         if self.headless:
             os.environ["SDL_VIDEODRIVER"] = "dummy"
