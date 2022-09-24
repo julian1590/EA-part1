@@ -59,7 +59,7 @@ class OptimizationSpecialist:
     def evaluate(self, x):
         return np.array(list(map(lambda y: self.simulation(self.env, y), x)))
 
-    def tournament(self, pop, fit_pop, k=2):
+    def tournament2(self, pop, fit_pop, k=2):
         selected = []
         for i in range(k):
             children_indices = np.random.randint(0, pop.shape[0], self.config.tournament_size)
@@ -68,6 +68,16 @@ class OptimizationSpecialist:
             fittest_index = children_indices[fittest_child]
             selected.append(pop[fittest_index])
         return selected
+
+    def tournament1(self, pop, fit_pop):
+        c1 = np.random.randint(0, pop.shape[0], 1)
+        c2 = np.random.randint(0, pop.shape[0], 1)
+
+        if fit_pop[c1] > fit_pop[c2]:
+            return pop[c1][0]
+        else:
+            return pop[c2][0]
+
 
     def limits(self, x):
         if x > self.config.upp_limit:
@@ -88,9 +98,9 @@ class OptimizationSpecialist:
         p1[point1:point2], p2[point1:point2] = p2[point1:point2], p1[point1:point2]
         return p1, p2
 
-
-    def kPointCrossover(self, ind1, ind2, k):
+    def kPointCrossover(self, ind1, ind2):
         size = min(len(ind1), len(ind2))
+        k = self.config.k_points
         if k > size:
             k = size
         cutoff_points = []
@@ -103,7 +113,6 @@ class OptimizationSpecialist:
             p1 = cutoff_points[i]
             ind1[p1::], ind2[p1::] = ind2[p1::], ind1[p1::]
         return ind1, ind2
-
 
     def mutGuass(self, offsp):
         size = len(offsp)
@@ -140,7 +149,9 @@ class OptimizationSpecialist:
         total_offspring = np.zeros((0, self.n_weights))
         for p in range(0, pop.shape[0], 2):
             # Selection
-            parent1, parent2 = self.tournament(pop, fit_pop)
+            # parent1, parent2 = self.tournament(pop, fit_pop)
+            parent1 = self.tournament1(pop, fit_pop)
+            parent2 = self.tournament1(pop, fit_pop)
             n_offsp = np.random.randint(1, 4, 1)[0]
             offsp = np.zeros((n_offsp, self.n_weights))
             for f in range(0, n_offsp):
@@ -148,7 +159,7 @@ class OptimizationSpecialist:
                 if self.config.crossover_algorithm == 'two_point':
                     parent1, parent2 = self.twoPointCrossover(parent1, parent2)
                 elif self.config.crossover_algorithm == 'k_point':
-                    parent1, parent2 = self.kPointCrossover(parent1, parent2, 15)
+                    parent1, parent2 = self.kPointCrossover(parent1, parent2)
                 offsp[f] = parent1 + parent2
                 # Mutation
                 if self.config.mutation_algorithm == "gauss":
@@ -230,7 +241,7 @@ class OptimizationSpecialist:
             # saves results
             with open(self.config.experiment_name + '/results.txt', 'a') as f:
                 print(f'\n GENERATION {str(i)} {str(round(fit_pop[best], 6))} {str(round(mean, 6))} {str(round(std, 6))}')
-                f.write(f'\n {str(i)} {str(round(fit_pop[best], 6))} {str(round(mean, 6))}  {str(round(std, 6))}')
+                f.write(f'\n GENERATION {str(i)} | {str(round(fit_pop[best], 6))} | {str(round(mean, 6))} | {str(round(std, 6))}')
 
             # saves generation number
             with open(self.config.experiment_name + '/gen.txt', 'w') as f:

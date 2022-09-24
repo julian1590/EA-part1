@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="Working EA">
+    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="Fixed Tournament size">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/specialist_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/specialist_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/specialist_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/specialist_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/optimization_specialist_our.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_specialist_our.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664027852973</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixed Tournament size">
+      <created>1664027983844</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664027983844</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,17 +141,11 @@
     <MESSAGE value="second commit" />
     <MESSAGE value="Fixed tournament" />
     <MESSAGE value="Working EA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working EA" />
+    <MESSAGE value="Fixed Tournament size" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Tournament size" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/specialist_config.py</url>
-          <line>52</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
