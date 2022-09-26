@@ -17,6 +17,7 @@
 
   "tournament_size": 2,
   "crossover_algorithm": "k_point",
+  "selection_algorithm": "default",
   "k_points": 10,
   "mu": 0.5,
   "sigma": 0.2

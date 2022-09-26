@@ -23,6 +23,7 @@ class OptimizationSpecialist:
                                     self.config.upp_limit,
                                     (self.config.n_pop, self.n_weights))
             fit_pop = self.evaluate(pop)
+            age_pop = np.zeros(self.config.n_pop)
             best = np.argmax(fit_pop)
             mean = np.mean(fit_pop)
             std = np.std(fit_pop)
@@ -32,8 +33,7 @@ class OptimizationSpecialist:
         else:
             print('\nCONTINUING EVOLUTION\n')
             self.env.load_state()
-            pop = self.env.solutions[0]
-            fit_pop = self.env.solutions[1]
+            pop, fit_pop, age_pop = self.env.solutions
             best = np.argmax(fit_pop)
             mean = np.mean(fit_pop)
             std = np.std(fit_pop)
@@ -41,7 +41,7 @@ class OptimizationSpecialist:
             with open(self.config.experiment_name + '/gen.txt', 'r') as f:
                 ini_g = int(f.readline())
 
-        return pop, fit_pop, best, mean, std, ini_g
+        return pop, fit_pop, age_pop, best, mean, std, ini_g
 
     def simulation(self, env, x):
         f, p, e, t = env.play(pcont=x)
@@ -163,10 +163,13 @@ class OptimizationSpecialist:
                 offsp[f] = parent1 + parent2
                 # Mutation
                 if self.config.mutation_algorithm == "gauss":
-                    final_offsp  = self.mutGuass(offsp)
+                    mut_offsp  = self.mutGuass(offsp)
                 elif self.config.mutation_algorithm == "polinomial":
-                    final_offsp = self.mutPolinomialBounded(offsp)
-        return final_offsp
+                    mut_offsp = self.mutPolinomialBounded(offsp)
+                mut_offsp[f] = np.array(list(map(lambda y: self.limits(y), mut_offsp[f])))
+
+                total_offspring = np.vstack((total_offspring, mut_offsp))
+        return total_offspring
 
     # kills the worst genomes, and replace with new best/random solutions
     def purge(self, pop, fit_pop):
@@ -183,9 +186,29 @@ class OptimizationSpecialist:
             fit_pop[o] = self.evaluate([pop[o]])
         return pop, fit_pop
 
+    def julian_selection(self, pop, fit_pop, age_pop, best):
+        """Fitness based selection, higher chance to be selected if higher fitness"""
+        fit_pop_cp = fit_pop
+        fit_pop_norm = np.array(list(map(lambda y: self.normalize(y, fit_pop_cp), fit_pop)))
+        age_pop_cp = age_pop
+        age_pop_norm = np.array(list(map(lambda y: self.normalize(y, age_pop_cp), age_pop)))
+        probs = 80*fit_pop_norm + 20*age_pop_norm
+        probs = probs / np.sum(probs)
+        chosen = np.random.choice(pop.shape[0], self.config.n_pop, p=probs, replace=False)
+        chosen = np.append(chosen[1:], best)
+        return pop[chosen], fit_pop[chosen], age_pop[chosen]
+
+    def default_selection(self, pop, fit_pop, age_pop, best):
+        fit_pop_cp = fit_pop
+        fit_pop_norm = np.array(list(map(lambda y: self.normalize(y, fit_pop_cp), fit_pop)))
+        probs = (fit_pop_norm) / (fit_pop_norm).sum()
+        chosen = np.random.choice(pop.shape[0], self.config.n_pop, p=probs, replace=False)
+        chosen = np.append(chosen[1:], best)
+        return pop[chosen], fit_pop[chosen], age_pop[chosen]
+
     def run(self):
         start = time.time()
-        pop, fit_pop, best, mean, std, ini_g = self.load_experiment()
+        pop, fit_pop, age_pop, best, mean, std, ini_g = self.load_experiment()
         if self.config.run_mode == 'test':
             bsol = np.loadtxt(self.config.experiment_name + '/best.txt')
             print('\n RUNNING SAVED BEST SOLUTION \n')
@@ -204,6 +227,7 @@ class OptimizationSpecialist:
             offspring = self.kissland(pop, fit_pop)
             fit_offspring = self.evaluate(offspring)
             pop = np.vstack((pop, offspring))
+            age_pop = np.hstack((age_pop, np.zeros(offspring.shape[0])))
             fit_pop = np.append(fit_pop, fit_offspring)
 
             best = np.argmax(fit_pop)
@@ -211,14 +235,11 @@ class OptimizationSpecialist:
             best_sol = fit_pop[best]
 
             # selection
-            fit_pop_cp = fit_pop
-            fit_pop_norm = np.array(list(map(lambda y: self.normalize(y, fit_pop_cp), fit_pop)))
-            probs = (fit_pop_norm) / (fit_pop_norm).sum()
-            chosen = np.random.choice(pop.shape[0], self.config.n_pop, p=probs, replace=False)
-            chosen = np.append(chosen[1:], best)
-            pop = pop[chosen]
-            fit_pop = fit_pop[chosen]
-
+            if self.config.selection_algorithm == 'julian':
+                pop, fit_pop, age_pop = self.julian_selection(pop, fit_pop, age_pop, best)
+            elif self.config.selection_algorithm == 'default':
+                pop, fit_pop, age_pop = self.default_selection(pop, fit_pop, age_pop, best)
+            age_pop += 1
             # searching new areas
 
             if best_sol <= last_sol:
@@ -251,7 +272,7 @@ class OptimizationSpecialist:
             np.savetxt(self.config.experiment_name + '/best.txt', pop[best])
 
             # saves simulation state
-            solutions = [pop, fit_pop]
+            solutions = [pop, fit_pop, age_pop]
             self.env.update_solutions(solutions)
             self.env.save_state()
 

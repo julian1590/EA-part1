@@ -28,6 +28,7 @@ class SpecialistConfig:
         self.mutation_algorithm = self.params["mutation_algorithm"]
         self.crossover_algorithm = self.params["crossover_algorithm"]
         self.tournament_size = self.params["tournament_size"]
+        self.selection_algorithm = self.params["selection_algorithm"]
         self.experiment_name = self.create_experiment_name()
         if self.headless:
             os.environ["SDL_VIDEODRIVER"] = "dummy"
@@ -43,11 +44,11 @@ class SpecialistConfig:
         return env
 
     def create_experiment_name(self):
-        experiment_name = f"experiment_pop-{self.n_pop}_tourn_size-{self.tournament_size}_cross-{self.crossover_algorithm}_mut-{self.mutation_algorithm}_mutProb-{self.mutation_prob}"
+        experiment_name = f"experiment_pop-{self.n_pop}_tourn_size-{self.tournament_size}_selec-{self.selection_algorithm}_cross-{self.crossover_algorithm}_mut-{self.mutation_algorithm}_mutProb-{self.mutation_prob}"
         if self.mutation_algorithm == "gauss":
-            experiment_name += f"mu-{self.mu}_sigma-{self.sigma}"
+            experiment_name += f"_mu-{self.mu}_sigma-{self.sigma}"
         if self.crossover_algorithm == "k_point":
-            experiment_name += f"k-{self.k_points}"
+            experiment_name += f"_k-{self.k_points}"
 
         # choose this for not using visuals and thus making experiments faster
         if not os.path.exists(experiment_name):
