@@ -12,7 +12,7 @@
   "dom_l" : -1,
   "npop" : 100,
   "generations" : 30,
-  "mutation_algorithm": "gauss",
+  "mutation_algorithm": "cauchy",
   "mutation_prob" : 0.5,
 
   "tournament_size": 2,
