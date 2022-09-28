@@ -11,7 +11,7 @@
   "dom_u" : 1,
   "dom_l" : -1,
   "npop" : 100,
-  "generations" : 30,
+  "generations" : 50,
   "mutation_algorithm": "cauchy",
   "mutation_prob" : 0.5,
 
