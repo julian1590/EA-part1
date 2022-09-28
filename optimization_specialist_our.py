@@ -3,6 +3,7 @@ sys.path.insert(0, 'evoman')
 # imports other libs
 import time, random
 import numpy as np
+from scipy.stats import cauchy
 from math import fabs,sqrt
 import os
 from specialist_config import SpecialistConfig
@@ -44,8 +45,8 @@ class OptimizationSpecialist:
         return pop, fit_pop, age_pop, best, mean, std, ini_g
 
     def simulation(self, env, x):
-        f, p, e, t = env.play(pcont=x)
-        return f
+        fitness, player_life, enemy_life, time = env.play(pcont=x)
+        return fitness
 
     def normalize(self, x, pfit_pop):
         if (max(pfit_pop) - min(pfit_pop)) > 0:
@@ -115,33 +116,23 @@ class OptimizationSpecialist:
         return ind1, ind2
 
     def mutGuass(self, offsp):
-        size = len(offsp)
-        for i in range(size):
-            if np.random.random() < self.config.mutation_prob:
-                offsp[i] += random.gauss(self.config.mu, self.config.sigma)
+        size = offsp.shape
+        mut_prob = np.random.random(size=size) #mutation probability
+        random_gauss = np.random.normal(loc=self.config.mu, scale=self.config.sigma, size=size)
+        mut_prob[mut_prob < self.config.mutation_prob] *= 0
+        mut_prob[mut_prob > 0] -= (mut_prob[mut_prob > 0] - 1)
+        temp = random_gauss * mut_prob
+        offsp += temp
         return offsp
 
-    def mutPolinomialBounded(self, offsp, eta=0.35, lower_bound=0, upper_bound=1):
-        """Polinomial bounded mutation implemetation taken from the DEAP framework"""
-        size = len(offsp)
-        for i, xl, xu in zip(range(size), lower_bound, upper_bound):
-            if random.random() <= self.config.mutation_prob:
-                x = offsp[i]
-                delta_1 = (x - xl) / (xu - xl)
-                delta_2 = (xu - x) / (xu - xl)
-                rand = random.random()
-                mut_pow = 1.0 / (eta + 1.)
-                if rand < 0.5:
-                    xy = 1.0 - delta_1
-                    val = 2.0 * rand + (1.0 - 2.0 * rand) * xy ** (eta + 1)
-                    delta_q = val ** mut_pow - 1.0
-                else:
-                    xy = 1.0 - delta_2
-                    val = 2.0 * (1.0 - rand) + 2.0 * (rand - 0.5) * xy ** (eta + 1)
-                    delta_q = 1.0 - val ** mut_pow
-                x = x + delta_q * (xu - xl)
-                x = min(max(x, xl), xu)
-                offsp[i] = x
+    def mutCauchy(self, offsp):
+        size = offsp.shape
+        mut_prob = np.random.random(size=size)  # mutation probability
+        random_cauchy = np.random.standard_cauchy(size=size)
+        mut_prob[mut_prob < self.config.mutation_prob] *= 0
+        mut_prob[mut_prob > 0] -= (mut_prob[mut_prob > 0] - 1)
+        temp = random_cauchy * mut_prob
+        offsp += temp
         return offsp
 
     # crossover
@@ -164,8 +155,8 @@ class OptimizationSpecialist:
                 # Mutation
                 if self.config.mutation_algorithm == "gauss":
                     mut_offsp  = self.mutGuass(offsp)
-                elif self.config.mutation_algorithm == "polinomial":
-                    mut_offsp = self.mutPolinomialBounded(offsp)
+                elif self.config.mutation_algorithm == "cauchy":
+                    mut_offsp = self.mutCauchy(offsp)
                 mut_offsp[f] = np.array(list(map(lambda y: self.limits(y), mut_offsp[f])))
 
                 total_offspring = np.vstack((total_offspring, mut_offsp))
