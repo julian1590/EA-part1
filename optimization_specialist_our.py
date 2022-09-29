@@ -1,8 +1,10 @@
+import json
 import sys
 sys.path.insert(0, 'evoman')
 # imports other libs
 import time, random
 import numpy as np
+from collections import defaultdict
 from scipy.stats import cauchy
 from math import fabs,sqrt
 import os
@@ -12,9 +14,6 @@ from specialist_config import SpecialistConfig
 class OptimizationSpecialist:
     def __init__(self):
         self.config = SpecialistConfig()
-        self.env = self.config.init_environment()
-        self.env.state_to_log()
-        self.n_weights = (self.env.get_num_sensors() + 1) * self.config.n_hidden_neurons + (self.config.n_hidden_neurons + 1) * 5
 
     def load_experiment(self):
         # initializes population loading old solutions or generating new ones
@@ -41,6 +40,13 @@ class OptimizationSpecialist:
             # finds last generation number
             with open(self.config.experiment_name + '/gen.txt', 'r') as f:
                 ini_g = int(f.readline())
+
+        with open(self.config.experiment_name + f'/results.txt', 'a') as f:
+            f.write('\n gen | best | mean | std')
+            print(
+                f'\n GENERATION {str(ini_g)} - {str(round(fit_pop[best], 6))} {str(round(mean, 6))} {str(round(std, 6))}')
+            f.write(
+                f'\n GENERATION {str(ini_g)} | {str(round(fit_pop[best], 6))} | {str(round(mean, 6))} | {str(round(std, 6))}')
 
         return pop, fit_pop, age_pop, best, mean, std, ini_g
 
@@ -202,83 +208,97 @@ class OptimizationSpecialist:
         chosen = np.append(chosen[1:], best)
         return pop[chosen], fit_pop[chosen], age_pop[chosen]
 
+    def create_results_dict(self, n_runs, enemies):
+        results_dict = defaultdict(dict)
+        for enemy in enemies:
+            for run in range(n_runs):
+                results_dict[enemy][run] = {"means":[], "maximums":[]}
+        return results_dict
+
     def run(self):
-        start = time.time()
-        pop, fit_pop, age_pop, best, mean, std, ini_g = self.load_experiment()
-        if self.config.run_mode == 'test':
-            bsol = np.loadtxt(self.config.experiment_name + '/best.txt')
-            print('\n RUNNING SAVED BEST SOLUTION \n')
-            self.env.update_parameter('speed', 'normal')
-            self.evaluate([bsol])
-            sys.exit(0)
-        # saves results for first pop
-        with open(self.config.experiment_name + '/results.txt', 'a') as f:
-            f.write('\n gen | best | mean | std')
-            print(f'\n GENERATION {str(ini_g)} - {str(round(fit_pop[best], 6))} {str(round(mean, 6))} {str(round(std, 6))}')
-            f.write(f'\n GENERATION {str(ini_g)} | {str(round(fit_pop[best], 6))} | {str(round(mean, 6))} | {str(round(std, 6))}')
+        results = self.create_results_dict(self.config.n_runs, self.config.enemies)
+        for enemy in self.config.enemies:
+            for run in range(self.config.n_runs):
+                start = time.time()
+                self.env = self.config.init_environment([enemy], run)
+                self.n_weights = (self.env.get_num_sensors() + 1) * self.config.n_hidden_neurons + (self.config.n_hidden_neurons + 1) * 5
+                self.env.state_to_log()
+                pop, fit_pop, age_pop, best, mean, std, ini_g = self.load_experiment()
+                # Add the first population results to the results dict
+                results[enemy][run]["means"].append(mean)
+                results[enemy][run]["maximums"].append(fit_pop[best])
 
-        last_sol = fit_pop[best]
-        not_improved = 0
-        for i in range(ini_g + 1, self.config.generations):
-            offspring = self.kissland(pop, fit_pop, i)
-            fit_offspring = self.evaluate(offspring)
-            pop = np.vstack((pop, offspring))
-            age_pop = np.hstack((age_pop, np.zeros(offspring.shape[0])))
-            fit_pop = np.append(fit_pop, fit_offspring)
+                if self.config.run_mode == 'test':
+                    bsol = np.loadtxt(self.config.experiment_name + '/best.txt')
+                    print('\n RUNNING SAVED BEST SOLUTION \n')
+                    self.env.update_parameter('speed', 'normal')
+                    self.evaluate([bsol])
+                    sys.exit(0)
 
-            best = np.argmax(fit_pop)
-            fit_pop[best] = float(self.evaluate(np.array([pop[best]]))[0])
-            best_sol = fit_pop[best]
-
-            # selection
-            if self.config.selection_algorithm == 'julian':
-                pop, fit_pop, age_pop = self.julian_selection(pop, fit_pop, age_pop, best)
-            elif self.config.selection_algorithm == 'default':
-                pop, fit_pop, age_pop = self.default_selection(pop, fit_pop, age_pop, best)
-            age_pop += 1
-            # searching new areas
-
-            if best_sol <= last_sol:
-                not_improved += 1
-            else:
-                last_sol = best_sol
+                last_sol = fit_pop[best]
                 not_improved = 0
+                for i in range(ini_g + 1, self.config.generations):
+                    offspring = self.kissland(pop, fit_pop, i)
+                    fit_offspring = self.evaluate(offspring)
+                    pop = np.vstack((pop, offspring))
+                    age_pop = np.hstack((age_pop, np.zeros(offspring.shape[0])))
+                    fit_pop = np.append(fit_pop, fit_offspring)
 
-            if not_improved >= 7:
-                with open(self.config.experiment_name + '/results.txt', 'a') as f:
-                    f.write('\n purge')
+                    best = np.argmax(fit_pop)
+                    fit_pop[best] = float(self.evaluate(np.array([pop[best]]))[0])
+                    best_sol = fit_pop[best]
 
-                pop, fit_pop = self.purge(pop, fit_pop)
-                not_improved = 0
+                    # selection
+                    if self.config.selection_algorithm == 'julian':
+                        pop, fit_pop, age_pop = self.julian_selection(pop, fit_pop, age_pop, best)
+                    elif self.config.selection_algorithm == 'default':
+                        pop, fit_pop, age_pop = self.default_selection(pop, fit_pop, age_pop, best)
+                    age_pop += 1
 
-            best = np.argmax(fit_pop)
-            std = np.std(fit_pop)
-            mean = np.mean(fit_pop)
+                    if best_sol <= last_sol:
+                        not_improved += 1
+                    else:
+                        last_sol = best_sol
+                        not_improved = 0
 
-            # saves results
-            with open(self.config.experiment_name + '/results.txt', 'a') as f:
-                print(f'\n GENERATION {str(i)} {str(round(fit_pop[best], 6))} {str(round(mean, 6))} {str(round(std, 6))}')
-                f.write(f'\n GENERATION {str(i)} | {str(round(fit_pop[best], 6))} | {str(round(mean, 6))} | {str(round(std, 6))}')
+                    if not_improved >= 7:
+                        with open(self.config.experiment_name + '/results.txt', 'a') as f:
+                            f.write('\n purge')
+                        pop, fit_pop = self.purge(pop, fit_pop)
+                        not_improved = 0
 
-            # saves generation number
-            with open(self.config.experiment_name + '/gen.txt', 'w') as f:
-                f.write(str(i))
+                    best = np.argmax(fit_pop)
+                    std = np.std(fit_pop)
+                    mean = np.mean(fit_pop)
+                    results[enemy][run]["means"].append(mean)
+                    results[enemy][run]["maximums"].append(fit_pop[best])
+                    # saves results
+                    with open(self.config.experiment_name + '/results.txt', 'a') as f:
+                        print(f'\n GENERATION {str(i)} {str(round(fit_pop[best], 6))} {str(round(mean, 6))} {str(round(std, 6))}')
+                        f.write(f'\n GENERATION {str(i)} | {str(round(fit_pop[best], 6))} | {str(round(mean, 6))} | {str(round(std, 6))}')
 
-            # saves file with the best solution
-            np.savetxt(self.config.experiment_name + '/best.txt', pop[best])
+                    # saves generation number
+                    with open(self.config.experiment_name + '/gen.txt', 'w') as f:
+                        f.write(str(i))
 
-            # saves simulation state
-            solutions = [pop, fit_pop, age_pop]
-            self.env.update_solutions(solutions)
-            self.env.save_state()
+                    # saves file with the best solution
+                    np.savetxt(self.config.experiment_name + '/best.txt', pop[best])
 
-        end = time.time()
-        print(f'\nRun time: {str(round((end - start) / 60))} minutes \n')
+                    # saves simulation state
+                    solutions = [pop, fit_pop, age_pop]
+                    self.env.update_solutions(solutions)
+                    self.env.save_state()
 
-        file = open(self.config.experiment_name + '/neuroended', 'w')
-        file.close()
+                end = time.time()
+                print(f'\nRun time: {str(round((end - start) / 60))} minutes \n')
 
-        self.env.state_to_log()
+                file = open(self.config.experiment_name + '/neuroended', 'w')
+                file.close()
+
+                self.env.state_to_log()
+
+        with open("final_results.json", "w") as f:
+            json.dump(results, f)
 
 if __name__ == '__main__':
     opt = OptimizationSpecialist()

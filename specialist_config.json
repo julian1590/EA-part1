@@ -1,5 +1,5 @@
 {
-  "enemies": [1],
+  "enemies": [1, 2],
   "playermode": "ai",
   "n_hidden_neurons": 10,
   "enemymode": "static",
@@ -8,11 +8,12 @@
   "headless": true,
 
   "run_mode": "train",
+  "n_runs": 2,
   "dom_u" : 1,
   "dom_l" : -1,
-  "npop" : 130,
+  "npop" : 3,
   "generations" : 30,
-  "mutation_algorithm": "gauss",
+  "mutation_algorithm": "combined",
   "mutation_prob" : 0.5,
 
   "tournament_size": 2,
