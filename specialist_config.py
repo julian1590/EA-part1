@@ -44,7 +44,7 @@ class SpecialistConfig:
         return env
 
     def create_experiment_name(self):
-        experiment_name = f"experiment_pop-{self.n_pop}_tourn_size-{self.tournament_size}_selec-{self.selection_algorithm}_cross-{self.crossover_algorithm}_mut-{self.mutation_algorithm}_mutProb-{self.mutation_prob}"
+        experiment_name = f"enemy_{self.enemies}_experiment_pop-{self.n_pop}_tourn_size-{self.tournament_size}_selec-{self.selection_algorithm}_cross-{self.crossover_algorithm}_mut-{self.mutation_algorithm}_mutProb-{self.mutation_prob}"
         if self.mutation_algorithm == "gauss":
             experiment_name += f"_mu-{self.mu}_sigma-{self.sigma}"
         if self.crossover_algorithm == "k_point":

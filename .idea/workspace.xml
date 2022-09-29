@@ -1,10 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="indentation fix">
+      <change beforePath="$PROJECT_DIR$/.idea/evoman_framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/evoman_framework.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/optimization_specialist_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_specialist_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-K6-p100/best.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-K6-p100/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-K6-p100/evoman_paramstate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-K6-p100/evoman_solstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-K6-p100/gen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-K6-p100/neuroended" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-K6-p100/results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-TwoPoint-p100/best.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-TwoPoint-p100/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-TwoPoint-p100/evoman_paramstate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-TwoPoint-p100/evoman_solstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-TwoPoint-p100/gen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-TwoPoint-p100/neuroended" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-TwoPoint-p100/results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p100/best.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p100/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p100/evoman_paramstate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p100/evoman_solstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p100/gen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p100/neuroended" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p100/results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p50/best.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p50/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p50/evoman_paramstate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p50/evoman_solstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p50/gen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p50/neuroended" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k10-p50/results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k15-p100/best.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k15-p100/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k15-p100/evoman_paramstate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k15-p100/evoman_solstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k15-p100/gen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k15-p100/neuroended" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k15-p100/results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k2-p100/best.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k2-p100/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k2-p100/evoman_paramstate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k2-p100/evoman_solstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k2-p100/gen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k2-p100/neuroended" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k2-p100/results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k3-p100/best.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k3-p100/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k3-p100/evoman_paramstate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k3-p100/evoman_solstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k3-p100/gen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k3-p100/neuroended" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k3-p100/results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k4-p100/best.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k4-p100/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k4-p100/evoman_paramstate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k4-p100/evoman_solstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k4-p100/gen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k4-p100/neuroended" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k4-p100/results.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k5-p100/best.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k5-p100/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k5-p100/evoman_paramstate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k5-p100/evoman_solstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k5-p100/gen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k5-p100/neuroended" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment-k5-p100/results.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/optimization_specialist_our.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_specialist_our.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions_demo/demo_1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions_demo/demo_2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions_demo/demo_3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions_demo/demo_4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions_demo/demo_5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions_demo/demo_6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions_demo/demo_7.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions_demo/demo_8.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions_demo/demo_all.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/specialist_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/specialist_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/specialist_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/specialist_config.py" afterDir="false" />
     </list>
@@ -21,6 +96,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2EMToxRFwIO206vCB8klFUHbuHN" />
@@ -31,9 +111,37 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/optimization_specialist_demo.py" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager" selected="Python.optimization">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="evoman_framework" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="controller_specialist_demo" type="PythonConfigurationType" factoryName="Python">
       <module name="evoman_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -46,6 +154,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/controller_specialist_demo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -67,6 +176,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/optimization_specialist_demo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -88,6 +198,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/optimization_specialist_our.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -99,8 +210,8 @@
     </configuration>
     <list>
       <item itemvalue="Python.controller_specialist_demo" />
-      <item itemvalue="Python.optimization" />
       <item itemvalue="Python.demo_optimize" />
+      <item itemvalue="Python.optimization" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -111,6 +222,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1662404636293</updated>
+      <workItem from="1664263076394" duration="16257000" />
+      <workItem from="1664352993580" duration="10432000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1664017669869</created>
@@ -164,6 +277,9 @@
     <option name="localTasksCounter" value="8" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -187,13 +303,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/optimization_specialist_our.py</url>
-          <line>276</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

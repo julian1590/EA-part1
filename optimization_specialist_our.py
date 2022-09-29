@@ -136,7 +136,7 @@ class OptimizationSpecialist:
         return offsp
 
     # crossover
-    def kissland(self, pop, fit_pop):
+    def kissland(self, pop, fit_pop, gen):
         total_offspring = np.zeros((0, self.n_weights))
         for p in range(0, pop.shape[0], 2):
             # Selection
@@ -157,6 +157,11 @@ class OptimizationSpecialist:
                     mut_offsp  = self.mutGuass(offsp)
                 elif self.config.mutation_algorithm == "cauchy":
                     mut_offsp = self.mutCauchy(offsp)
+                elif self.config.mutation_algorithm == "combined":
+                    if gen < self.config.generations/2:
+                        mut_offsp = self.mutCauchy(offsp)
+                    else:
+                        mut_offsp = self.mutGuass(offsp)
                 mut_offsp[f] = np.array(list(map(lambda y: self.limits(y), mut_offsp[f])))
 
                 total_offspring = np.vstack((total_offspring, mut_offsp))
@@ -215,7 +220,7 @@ class OptimizationSpecialist:
         last_sol = fit_pop[best]
         not_improved = 0
         for i in range(ini_g + 1, self.config.generations):
-            offspring = self.kissland(pop, fit_pop)
+            offspring = self.kissland(pop, fit_pop, i)
             fit_offspring = self.evaluate(offspring)
             pop = np.vstack((pop, offspring))
             age_pop = np.hstack((age_pop, np.zeros(offspring.shape[0])))
