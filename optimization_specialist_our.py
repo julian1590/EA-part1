@@ -94,17 +94,6 @@ class OptimizationSpecialist:
         else:
             return x
 
-    def twoPointCrossover(self, p1, p2):
-        size = min(len(p1), len(p2))
-        point1 = np.random.randint(1, size)
-        point2 = np.random.randint(1, size - 1)
-        if point2 >= point1:
-            point2 += 1
-        else:
-            point1, point2 = point2, point1
-        p1[point1:point2], p2[point1:point2] = p2[point1:point2], p1[point1:point2]
-        return p1, p2
-
     def kPointCrossover(self, ind1, ind2):
         size = min(len(ind1), len(ind2))
         k = self.config.k_points
@@ -163,11 +152,12 @@ class OptimizationSpecialist:
                     mut_offsp  = self.mutGuass(offsp)
                 elif self.config.mutation_algorithm == "cauchy":
                     mut_offsp = self.mutCauchy(offsp)
-                elif self.config.mutation_algorithm == "combined":
-                    if gen < self.config.generations/2:
-                        mut_offsp = self.mutCauchy(offsp)
-                    else:
-                        mut_offsp = self.mutGuass(offsp)
+                elif self.config.mutation_algorithm == "switch":
+                	# decrease sigma to switch to exploitation after 15 gens
+                    if gen > self.config.generations/2:
+                    	self.config.mu = 0.5
+                    	self.config.sigma = 0.2
+                    mut_offsp = self.mutGuass(offsp)
                 mut_offsp[f] = np.array(list(map(lambda y: self.limits(y), mut_offsp[f])))
 
                 total_offspring = np.vstack((total_offspring, mut_offsp))
@@ -188,18 +178,6 @@ class OptimizationSpecialist:
             fit_pop[o] = self.evaluate([pop[o]])
         return pop, fit_pop
 
-    def julian_selection(self, pop, fit_pop, age_pop, best):
-        """Fitness based selection, higher chance to be selected if higher fitness"""
-        fit_pop_cp = fit_pop
-        fit_pop_norm = np.array(list(map(lambda y: self.normalize(y, fit_pop_cp), fit_pop)))
-        age_pop_cp = age_pop
-        age_pop_norm = np.array(list(map(lambda y: self.normalize(y, age_pop_cp), age_pop)))
-        probs = 80*fit_pop_norm + 20*age_pop_norm
-        probs = probs / np.sum(probs)
-        chosen = np.random.choice(pop.shape[0], self.config.n_pop, p=probs, replace=False)
-        chosen = np.append(chosen[1:], best)
-        return pop[chosen], fit_pop[chosen], age_pop[chosen]
-
     def default_selection(self, pop, fit_pop, age_pop, best):
         fit_pop_cp = fit_pop
         fit_pop_norm = np.array(list(map(lambda y: self.normalize(y, fit_pop_cp), fit_pop)))
@@ -216,6 +194,13 @@ class OptimizationSpecialist:
         return results_dict
 
     def run(self):
+    	if self.config.run_mode == 'test':
+                    bsol = np.loadtxt(self.config.experiment_name + '/best.txt')
+                    print('\n RUNNING SAVED BEST SOLUTION \n')
+                    self.env.update_parameter('speed', 'normal')
+                    self.evaluate([bsol])
+                    sys.exit(0)
+
         results = self.create_results_dict(self.config.n_runs, self.config.enemies)
         for enemy in self.config.enemies:
             for run in range(self.config.n_runs):
@@ -227,13 +212,6 @@ class OptimizationSpecialist:
                 # Add the first population results to the results dict
                 results[enemy][run]["means"].append(mean)
                 results[enemy][run]["maximums"].append(fit_pop[best])
-
-                if self.config.run_mode == 'test':
-                    bsol = np.loadtxt(self.config.experiment_name + '/best.txt')
-                    print('\n RUNNING SAVED BEST SOLUTION \n')
-                    self.env.update_parameter('speed', 'normal')
-                    self.evaluate([bsol])
-                    sys.exit(0)
 
                 last_sol = fit_pop[best]
                 not_improved = 0
@@ -249,9 +227,7 @@ class OptimizationSpecialist:
                     best_sol = fit_pop[best]
 
                     # selection
-                    if self.config.selection_algorithm == 'julian':
-                        pop, fit_pop, age_pop = self.julian_selection(pop, fit_pop, age_pop, best)
-                    elif self.config.selection_algorithm == 'default':
+                    if self.config.selection_algorithm == 'default':
                         pop, fit_pop, age_pop = self.default_selection(pop, fit_pop, age_pop, best)
                     age_pop += 1
 
