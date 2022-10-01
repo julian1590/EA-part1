@@ -80,6 +80,9 @@
       <module name="evoman_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="C:\Users\julia\anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -165,6 +168,9 @@
       <module name="evoman_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="C:\Users\julia\anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -181,11 +187,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.boxplots" />
       <item itemvalue="Python.controller_specialist_demo" />
+      <item itemvalue="Python.demo_optimize" />
       <item itemvalue="Python.optimization" />
       <item itemvalue="Python.run test" />
-      <item itemvalue="Python.boxplots" />
-      <item itemvalue="Python.demo_optimize" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
