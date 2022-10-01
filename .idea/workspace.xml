@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="indentation fix">
+      <change beforePath="$PROJECT_DIR$/.idea/evoman_framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/evoman_framework.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/optimization_specialist_our.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_specialist_our.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/specialist_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/specialist_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemy2/final_results.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemy3/final_results.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boxplots.py" beforeDir="false" afterPath="$PROJECT_DIR$/boxplots.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +55,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.boxplots">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -80,16 +84,13 @@
       <module name="evoman_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="C:\Users\julia\anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/boxplots.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/boxplots.ipynb" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,11 +188,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.boxplots" />
       <item itemvalue="Python.controller_specialist_demo" />
-      <item itemvalue="Python.demo_optimize" />
       <item itemvalue="Python.optimization" />
       <item itemvalue="Python.run test" />
+      <item itemvalue="Python.boxplots" />
+      <item itemvalue="Python.demo_optimize" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
