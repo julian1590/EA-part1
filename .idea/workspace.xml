@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="indentation fix">
-      <change beforePath="$PROJECT_DIR$/.idea/evoman_framework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/evoman_framework.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NEAT_boxplot.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_10_2022__09_18__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_10_2022__09_18__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enemy2/final_results.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enemy3/final_results.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/boxplots.py" beforeDir="false" afterPath="$PROJECT_DIR$/boxplots.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-0/evoman_logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-0/evoman_logs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-1/evoman_logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-1/evoman_logs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-2/evoman_logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-2/evoman_logs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boxplots.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/boxplots.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_best.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_best.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +60,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.boxplots">
+  <component name="RunManager" selected="Python.run test">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="evoman_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -84,6 +87,9 @@
       <module name="evoman_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="C:\Users\julia\anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -169,9 +175,6 @@
       <module name="evoman_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="C:\Users\julia\anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
