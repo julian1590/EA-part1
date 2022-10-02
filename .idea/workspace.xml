@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="indentation fix">
-      <change afterPath="$PROJECT_DIR$/NEAT_boxplot.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_10_2022__09_18__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_10_2022__09_18__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-0/evoman_logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-0/evoman_logs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-1/evoman_logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-1/evoman_logs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-2/evoman_logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Enemy1/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-combined_mutProb-0.5_k-10_run-2/evoman_logs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boxplots.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/boxplots.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_best.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_best.py" afterDir="false" />
-    </list>
+    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="indentation fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
