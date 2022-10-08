@@ -1,14 +1,15 @@
 {
-  "enemies": [1],
+  "enemies": [[7, 8]],
   "playermode": "ai",
   "n_hidden_neurons": 10,
   "enemymode": "static",
+  "multiplemode": "yes",
   "level": 2,
   "speed": "fastest",
   "headless": true,
 
   "run_mode": "train",
-  "n_runs": 10,
+  "n_runs": 1,
   "dom_u" : 1,
   "dom_l" : -1,
   "npop" : 110,
@@ -20,6 +21,6 @@
   "crossover_algorithm": "k_point",
   "selection_algorithm": "default",
   "k_points": 10,
-  "mu": 0.7,
-  "sigma": 0.4
+  "mu": 0.5,
+  "sigma": 0.2
 }

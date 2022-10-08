@@ -8,12 +8,12 @@ from collections import defaultdict
 from scipy.stats import cauchy
 from math import fabs,sqrt
 import os
-from specialist_config import SpecialistConfig
+from EA_config import EAConfig
 
 
-class OptimizationSpecialist:
+class OptimizationEA:
 	def __init__(self):
-		self.config = SpecialistConfig()
+		self.config = EAConfig()
 
 	def load_experiment(self):
 		# initializes population loading old solutions or generating new ones
@@ -155,9 +155,12 @@ class OptimizationSpecialist:
 				elif self.config.mutation_algorithm == "switch":
 					# decrease sigma to switch to exploitation after 15 gens
 					if gen > self.config.generations/2:
-						self.config.mu = 0.5
-						self.config.sigma = 0.2
-					mut_offsp = self.mutGuass(offsp)
+						mut_offsp = self.mutGuass(offsp)
+					else:
+						mut_offsp = self.mutCauchy(offsp)
+					# 	self.config.mu = 0.5
+					# 	self.config.sigma = 0.2
+					# mut_offsp = self.mutGuass(offsp)
 				mut_offsp[f] = np.array(list(map(lambda y: self.limits(y), mut_offsp[f])))
 
 				total_offspring = np.vstack((total_offspring, mut_offsp))
@@ -190,7 +193,7 @@ class OptimizationSpecialist:
 		results_dict = defaultdict(dict)
 		for enemy in enemies:
 			for run in range(n_runs):
-				results_dict[enemy][run] = {"means":[], "maximums":[]}
+				results_dict[str(enemy)][run] = {"means":[], "maximums":[]}
 		return results_dict
 
 	def run(self):
@@ -202,16 +205,16 @@ class OptimizationSpecialist:
 					sys.exit(0)
 
 		results = self.create_results_dict(self.config.n_runs, self.config.enemies)
-		for enemy in self.config.enemies:
+		for enemies in self.config.enemies:
 			for run in range(self.config.n_runs):
 				start = time.time()
-				self.env = self.config.init_environment([enemy], run)
+				self.env = self.config.init_environment(enemies, run)
 				self.n_weights = (self.env.get_num_sensors() + 1) * self.config.n_hidden_neurons + (self.config.n_hidden_neurons + 1) * 5
 				self.env.state_to_log()
 				pop, fit_pop, age_pop, best, mean, std, ini_g = self.load_experiment()
 				# Add the first population results to the results dict
-				results[enemy][run]["means"].append(mean)
-				results[enemy][run]["maximums"].append(fit_pop[best])
+				results[str(enemies)][run]["means"].append(mean)
+				results[str(enemies)][run]["maximums"].append(fit_pop[best])
 
 				last_sol = fit_pop[best]
 				not_improved = 0
@@ -246,8 +249,8 @@ class OptimizationSpecialist:
 					best = np.argmax(fit_pop)
 					std = np.std(fit_pop)
 					mean = np.mean(fit_pop)
-					results[enemy][run]["means"].append(mean)
-					results[enemy][run]["maximums"].append(fit_pop[best])
+					results[str(enemies)][run]["means"].append(mean)
+					results[str(enemies)][run]["maximums"].append(fit_pop[best])
 					# saves results
 					with open(self.config.experiment_name + '/results.txt', 'a') as f:
 						print(f'\n GENERATION {str(i)} {str(round(fit_pop[best], 6))} {str(round(mean, 6))} {str(round(std, 6))}')
@@ -277,7 +280,7 @@ class OptimizationSpecialist:
 			json.dump(results, f)
 
 if __name__ == '__main__':
-	opt = OptimizationSpecialist()
+	opt = OptimizationEA()
 	opt.run()
 
 

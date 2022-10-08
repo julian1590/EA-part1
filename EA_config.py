@@ -5,9 +5,9 @@ sys.path.insert(0, 'evoman')
 from environment import Environment
 from demo_controller import player_controller
 
-class SpecialistConfig:
+class EAConfig:
     def __init__(self):
-        with open("specialist_config.json") as f:
+        with open("EA_config.json") as f:
             self.params = json.load(f)
         self.n_hidden_neurons = self.params["n_hidden_neurons"]
         self.enemies = self.params["enemies"]
@@ -16,6 +16,7 @@ class SpecialistConfig:
         self.level = self.params["level"]
         self.speed = self.params["speed"]
         self.headless = self.params["headless"]
+        self.multiple_mode = self.params["multiplemode"]
         self.run_mode = self.params["run_mode"]
         self.upp_limit = self.params["dom_u"]
         self.lower_limit =  self.params["dom_l"]
@@ -38,6 +39,7 @@ class SpecialistConfig:
         env = Environment(experiment_name=self.experiment_name,
                                enemies=enemy,
                                playermode=self.playermode,
+                               multiplemode=self.multiple_mode,
                                player_controller=player_controller(self.n_hidden_neurons),
                                enemymode=self.enemymode,
                                level=self.level,

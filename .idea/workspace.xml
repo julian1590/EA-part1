@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="indentation fix" />
+    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="indentation fix">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_28_2022_5_43_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_28_2022_5_43_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-switch_mutProb-0.5_k-10_run-0/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/optimization_specialist_our.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_EA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/specialist_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/specialist_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +58,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.run test">
+  <component name="RunManager" selected="Python.optimization">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="evoman_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,7 +160,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/optimization_specialist_our.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\julia\OneDrive\Documenten\Uva Werkcolleges\Master AI\Evolutionairy Computing\Assignments\evoman_framework\optimization_EA.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -165,6 +173,9 @@
       <module name="evoman_framework" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="C:\Users\julia\anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -181,11 +192,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.boxplots" />
       <item itemvalue="Python.controller_specialist_demo" />
+      <item itemvalue="Python.demo_optimize" />
       <item itemvalue="Python.optimization" />
       <item itemvalue="Python.run test" />
-      <item itemvalue="Python.boxplots" />
-      <item itemvalue="Python.demo_optimize" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
