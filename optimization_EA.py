@@ -85,6 +85,35 @@ class OptimizationEA:
 		else:
 			return pop[c2][0]
 
+	def fitnessProportional(self, pop, fit_pop):
+		c1 = np.random.randint(0, pop.shape[0], 1)
+		c2 = np.random.randint(0, pop.shape[0], 1)
+		sum_fitness = np.sum(fit_pop)
+		if (fit_pop[c1] / sum_fitness) > (fit_pop[c2] / sum_fitness):
+			return pop[c1][0]
+		else:
+			return pop[c2][0]
+
+	def fitnessProportionalWindowing(self, pop, fit_pop):
+		c1 = np.random.randint(0, pop.shape[0], 1)
+		c2 = np.random.randint(0, pop.shape[0], 1)
+		min_fitness = np.minimum(fit_pop)
+		if (fit_pop[c1] - min_fitness) > (fit_pop[c2] - min_fitness):
+			return pop[c1][0]
+		else:
+			return pop[c2][0]
+	
+	def fitnessProportionalSigmaScaling(self, pop, fit_pop):
+		c1 = np.random.randint(0, pop.shape[0], 1)
+		c2 = np.random.randint(0, pop.shape[0], 1)
+		min_fitness = np.minimum(fit_pop)
+		mean_fitness = np.mean(fit_pop)
+		std_fitness = np.std(fit_pop)
+		if (max(fit_pop[c1] - (mean_fitness - 2 * std_fitness), 0)) > (max(fit_pop[c2] - (mean_fitness - 2 * std_fitness), 0)):
+			return pop[c1][0]
+		else:
+			return pop[c2][0]
+
 
 	def limits(self, x):
 		if x > self.config.upp_limit:
@@ -136,8 +165,8 @@ class OptimizationEA:
 		for p in range(0, pop.shape[0], 2):
 			# Selection
 			# parent1, parent2 = self.tournament(pop, fit_pop)
-			parent1 = self.tournament1(pop, fit_pop)
-			parent2 = self.tournament1(pop, fit_pop)
+			parent1 = self.fitnessProp(pop, fit_pop)
+			parent2 = self.fitnessProp(pop, fit_pop)
 			n_offsp = np.random.randint(1, 4, 1)[0]
 			offsp = np.zeros((n_offsp, self.n_weights))
 			for f in range(0, n_offsp):
@@ -149,7 +178,7 @@ class OptimizationEA:
 				offsp[f] = parent1 + parent2
 				# Mutation
 				if self.config.mutation_algorithm == "gauss":
-					mut_offsp  = self.mutGuass(offsp)
+					mut_offsp = self.mutGuass(offsp)
 				elif self.config.mutation_algorithm == "cauchy":
 					mut_offsp = self.mutCauchy(offsp)
 				elif self.config.mutation_algorithm == "switch":
