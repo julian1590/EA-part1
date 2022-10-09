@@ -97,18 +97,15 @@ class OptimizationEA:
 	def fitnessProportionalWindowing(self, pop, fit_pop):
 		c1 = np.random.randint(0, pop.shape[0], 1)
 		c2 = np.random.randint(0, pop.shape[0], 1)
-		min_fitness = np.minimum(fit_pop)
+		min_fitness = np.min(fit_pop)
 		if (fit_pop[c1] - min_fitness) > (fit_pop[c2] - min_fitness):
 			return pop[c1][0]
 		else:
 			return pop[c2][0]
 	
-	def fitnessProportionalSigmaScaling(self, pop, fit_pop):
+	def fitnessProportionalSigmaScaling(self, pop, fit_pop, mean_fitness, std_fitness):
 		c1 = np.random.randint(0, pop.shape[0], 1)
 		c2 = np.random.randint(0, pop.shape[0], 1)
-		min_fitness = np.minimum(fit_pop)
-		mean_fitness = np.mean(fit_pop)
-		std_fitness = np.std(fit_pop)
 		if (max(fit_pop[c1] - (mean_fitness - 2 * std_fitness), 0)) > (max(fit_pop[c2] - (mean_fitness - 2 * std_fitness), 0)):
 			return pop[c1][0]
 		else:
@@ -160,18 +157,18 @@ class OptimizationEA:
 		return offsp
 
 	# crossover
-	def kissland(self, pop, fit_pop, gen):
+	def kissland(self, pop, fit_pop, mean, std, gen):
 		total_offspring = np.zeros((0, self.n_weights))
 		for p in range(0, pop.shape[0], 2):
 			# Selection
 			if self.config.fitness_selection == "tournament":
 				parent1, parent2 = self.tournament(pop, fit_pop)
 			elif self.config.fitness_selection == "windowing":
-				parent1 = self.fitnessPropotionalWindowing(pop, fit_pop)
-				parent2 = self.fitnessPropotionalWindowing(pop, fit_pop)
+				parent1 = self.fitnessProportionalWindowing(pop, fit_pop)
+				parent2 = self.fitnessProportionalWindowing(pop, fit_pop)
 			elif self.config.fitness_selection == "sigma_scaling":
-				parent1 = self.fitnessPropotionalSigmaScaling(pop, fit_pop)
-				parent2 = self.fitnessPropotionalSigmaScaling(pop, fit_pop)
+				parent1 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
+				parent2 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
 			n_offsp = np.random.randint(1, 4, 1)[0]
 			offsp = np.zeros((n_offsp, self.n_weights))
 			for f in range(0, n_offsp):
@@ -246,6 +243,7 @@ class OptimizationEA:
 				self.n_weights = (self.env.get_num_sensors() + 1) * self.config.n_hidden_neurons + (self.config.n_hidden_neurons + 1) * 5
 				self.env.state_to_log()
 				pop, fit_pop, age_pop, best, mean, std, ini_g = self.load_experiment()
+
 				# Add the first population results to the results dict
 				results[str(enemies)][run]["means"].append(mean)
 				results[str(enemies)][run]["maximums"].append(fit_pop[best])
@@ -253,7 +251,7 @@ class OptimizationEA:
 				last_sol = fit_pop[best]
 				not_improved = 0
 				for i in range(ini_g + 1, self.config.generations):
-					offspring = self.kissland(pop, fit_pop, i)
+					offspring = self.kissland(pop, fit_pop, mean, std, i)
 					fit_offspring = self.evaluate(offspring)
 					pop = np.vstack((pop, offspring))
 					age_pop = np.hstack((age_pop, np.zeros(offspring.shape[0])))
