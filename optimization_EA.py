@@ -164,9 +164,14 @@ class OptimizationEA:
 		total_offspring = np.zeros((0, self.n_weights))
 		for p in range(0, pop.shape[0], 2):
 			# Selection
-			# parent1, parent2 = self.tournament(pop, fit_pop)
-			parent1 = self.fitnessProp(pop, fit_pop)
-			parent2 = self.fitnessProp(pop, fit_pop)
+			if self.config.fitness_selection == "tournament":
+				parent1, parent2 = self.tournament(pop, fit_pop)
+			elif self.config.fitness_selection == "windowing":
+				parent1 = self.fitnessPropotionalWindowing(pop, fit_pop)
+				parent2 = self.fitnessPropotionalWindowing(pop, fit_pop)
+			elif self.config.fitness_selection == "sigma_scaling":
+				parent1 = self.fitnessPropotionalSigmaScaling(pop, fit_pop)
+				parent2 = self.fitnessPropotionalSigmaScaling(pop, fit_pop)
 			n_offsp = np.random.randint(1, 4, 1)[0]
 			offsp = np.zeros((n_offsp, self.n_weights))
 			for f in range(0, n_offsp):

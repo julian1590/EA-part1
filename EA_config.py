@@ -30,6 +30,7 @@ class EAConfig:
         self.crossover_algorithm = self.params["crossover_algorithm"]
         self.tournament_size = self.params["tournament_size"]
         self.selection_algorithm = self.params["selection_algorithm"]
+        self.fitness_selection = self.params["fitness_selection"]
         self.n_runs = self.params["n_runs"]
         if self.headless:
             os.environ["SDL_VIDEODRIVER"] = "dummy"
@@ -47,7 +48,7 @@ class EAConfig:
         return env
 
     def create_experiment_name(self, enemy, run):
-        experiment_name = f"enemy_{enemy}_experiment_pop-{self.n_pop}_tourn_size-{self.tournament_size}_selec-{self.selection_algorithm}_cross-{self.crossover_algorithm}_mut-{self.mutation_algorithm}_mutProb-{self.mutation_prob}"
+        experiment_name = f"enemy_{enemy}_fitSelect-{self.fitness_selection}_experiment_pop-{self.n_pop}_tourn_size-{self.tournament_size}_selec-{self.selection_algorithm}_cross-{self.crossover_algorithm}_mut-{self.mutation_algorithm}_mutProb-{self.mutation_prob}"
         if self.mutation_algorithm == "gauss":
             experiment_name += f"_mu-{self.mu}_sigma-{self.sigma}"
         if self.crossover_algorithm == "k_point":

@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="indentation fix">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_28_2022_5_43_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_28_2022_5_43_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/enemy_[1]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-switch_mutProb-0.5_k-10_run-0/evoman_logs.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/optimization_specialist_our.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_EA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/specialist_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/specialist_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EA_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EA_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/optimization_EA.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_EA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
