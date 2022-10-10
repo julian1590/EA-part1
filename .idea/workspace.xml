@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;switch to proportional after 15 gens&quot;">
+    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;tournament -&gt; tournament2&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/optimization_EA.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_EA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -274,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665397944803</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="&quot;tournament -&gt; tournament2&quot;">
+      <created>1665398563709</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1665398563709</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,14 +310,15 @@
     <MESSAGE value="&quot;added proportional to config file&quot;" />
     <MESSAGE value="&quot;fixed config files&quot;" />
     <MESSAGE value="&quot;switch to proportional after 15 gens&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;switch to proportional after 15 gens&quot;" />
+    <MESSAGE value="&quot;tournament -&gt; tournament2&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;tournament -&gt; tournament2&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/optimization_EA.py</url>
-          <line>295</line>
+          <line>291</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

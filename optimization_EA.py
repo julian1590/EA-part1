@@ -164,17 +164,13 @@ class OptimizationEA:
 			if self.config.fitness_selection == "tournament":
 				parent1, parent2 = self.tournament2(pop, fit_pop)
 			elif self.config.fitness_selection == "windowing":
-				if gen > self.config.generations / 2:
-					with open(self.config.experiment_name + '/results.txt', 'a') as f:
-						f.write('\n switch to windowing')
+				if gen > int(self.config.generations / 2):
 					parent1 = self.fitnessProportionalWindowing(pop, fit_pop)
 					parent2 = self.fitnessProportionalWindowing(pop, fit_pop)
 				else:
 					parent1, parent2 = self.tournament2(pop, fit_pop)
 			elif self.config.fitness_selection == "sigma_scaling":
-				if gen > self.config.generations / 2:
-					with open(self.config.experiment_name + '/results.txt', 'a') as f:
-						f.write('\n switch to Sigma Scaling')
+				if gen > int(self.config.generations / 2):
 					parent1 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
 					parent2 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
 				else:
