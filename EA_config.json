@@ -1,15 +1,15 @@
 {
-  "enemies": [[1, 2, 3, 4, 5, 6, 7, 8]],
+  "enemies": [[7, 8]],
   "playermode": "ai",
   "n_hidden_neurons": 10,
   "enemymode": "static",
   "multiplemode": "yes",
   "level": 2,
   "speed": "fastest",
-  "headless": false,
+  "headless": true,
 
-  "run_mode": "test",
-  "test_EA_dir": "enemy_[7, 8]_fitSelect-sigma_scaling_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-switch_mutProb-0.5_k-10_run-0",
+  "run_mode": "train",
+  "test_EA_dir": "",
   "n_runs": 1,
   "dom_u" : 1,
   "dom_l" : -1,
@@ -18,6 +18,7 @@
   "mutation_algorithm": "switch",
   "mutation_prob" : 0.5,
   "fitness_selection": "sigma_scaling",
+  "player_life_weight": 0.3,
 
   "tournament_size": 2,
   "crossover_algorithm": "k_point",

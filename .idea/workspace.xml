@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;removed switch log&quot;">
+    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;Testing on all enemies. Give dir of EA to test on&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EA_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EA_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config.py" afterDir="false" />
@@ -291,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665416362970</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="&quot;Testing on all enemies. Give dir of EA to test on&quot;">
+      <created>1665417374057</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1665417374057</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,15 +328,21 @@
     <MESSAGE value="&quot;switch to proportional after 15 gens&quot;" />
     <MESSAGE value="&quot;tournament -&gt; tournament2&quot;" />
     <MESSAGE value="&quot;removed switch log&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;removed switch log&quot;" />
+    <MESSAGE value="&quot;Testing on all enemies. Give dir of EA to test on&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Testing on all enemies. Give dir of EA to test on&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/optimization_EA.py</url>
-          <line>292</line>
+          <line>296</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/optimization_EA.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

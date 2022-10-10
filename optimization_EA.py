@@ -50,8 +50,11 @@ class OptimizationEA:
 
 		return pop, fit_pop, age_pop, best, mean, std, ini_g
 
-	def simulation(self, env, x):
-		fitness, player_life, enemy_life, time = env.play(pcont=x)
+	def customFitness(self):
+		return self.config.enemy_life_weight * (100 - self.env.get_enemylife()) + self.config.player_life_weight * self.env.get_playerlife() - np.log(self.env.get_time())
+
+	def simulation(self, x):
+		fitness, player_life, enemy_life, time = self.env.play(pcont=x)
 		return fitness
 
 	def normalize(self, x, pfit_pop):
@@ -64,7 +67,7 @@ class OptimizationEA:
 		return x_norm
 
 	def evaluate(self, x):
-		return np.array(list(map(lambda y: self.simulation(self.env, y), x)))
+		return np.array(list(map(lambda y: self.simulation(y), x)))
 
 	def tournament2(self, pop, fit_pop, k=2):
 		selected = []
@@ -110,7 +113,6 @@ class OptimizationEA:
 			return pop[c1][0]
 		else:
 			return pop[c2][0]
-
 
 	def limits(self, x):
 		if x > self.config.upp_limit:
@@ -247,6 +249,8 @@ class OptimizationEA:
 			for run in range(self.config.n_runs):
 				start = time.time()
 				self.env = self.config.init_environment(enemies, run)
+				# Set the fitness function
+				self.env.fitness_single = self.customFitness
 				self.n_weights = (self.env.get_num_sensors() + 1) * self.config.n_hidden_neurons + (self.config.n_hidden_neurons + 1) * 5
 				self.env.state_to_log()
 				pop, fit_pop, age_pop, best, mean, std, ini_g = self.load_experiment()
