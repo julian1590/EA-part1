@@ -166,17 +166,11 @@ class OptimizationEA:
 			if self.config.fitness_selection == "tournament":
 				parent1, parent2 = self.tournament2(pop, fit_pop)
 			elif self.config.fitness_selection == "windowing":
-				if gen > int(self.config.generations / 2):
-					parent1 = self.fitnessProportionalWindowing(pop, fit_pop)
-					parent2 = self.fitnessProportionalWindowing(pop, fit_pop)
-				else:
-					parent1, parent2 = self.tournament2(pop, fit_pop)
+				parent1 = self.fitnessProportionalWindowing(pop, fit_pop)
+				parent2 = self.fitnessProportionalWindowing(pop, fit_pop)
 			elif self.config.fitness_selection == "sigma_scaling":
-				if gen > int(self.config.generations / 2):
-					parent1 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
-					parent2 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
-				else:
-					parent1, parent2 = self.tournament2(pop, fit_pop)
+				parent1 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
+				parent2 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
 			n_offsp = np.random.randint(1, 4, 1)[0]
 			offsp = np.zeros((n_offsp, self.n_weights))
 			for f in range(0, n_offsp):
