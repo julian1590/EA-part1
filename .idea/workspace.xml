@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;added proportional to config file&quot;">
+    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;fixed config files&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EA_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enemy_[7, 8]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-switch_mutProb-0.5_k-10_run-0/best.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enemy_[7, 8]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-switch_mutProb-0.5_k-10_run-0/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enemy_[7, 8]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-switch_mutProb-0.5_k-10_run-0/evoman_paramstate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enemy_[7, 8]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-switch_mutProb-0.5_k-10_run-0/evoman_solstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enemy_[7, 8]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-switch_mutProb-0.5_k-10_run-0/gen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enemy_[7, 8]_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-switch_mutProb-0.5_k-10_run-0/results.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/optimization_EA.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_EA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665310250155</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="&quot;fixed config files&quot;">
+      <created>1665312050993</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1665312050993</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,10 +300,18 @@
     <MESSAGE value="logging fix" />
     <MESSAGE value="indentation fix" />
     <MESSAGE value="&quot;added proportional to config file&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;added proportional to config file&quot;" />
+    <MESSAGE value="&quot;fixed config files&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;fixed config files&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/optimization_EA.py</url>
+          <line>295</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -303,6 +323,7 @@
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="tourn_size" />
+        <watch expression="best" />
       </configuration>
     </watches-manager>
   </component>

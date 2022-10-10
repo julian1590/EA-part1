@@ -164,11 +164,21 @@ class OptimizationEA:
 			if self.config.fitness_selection == "tournament":
 				parent1, parent2 = self.tournament(pop, fit_pop)
 			elif self.config.fitness_selection == "windowing":
-				parent1 = self.fitnessProportionalWindowing(pop, fit_pop)
-				parent2 = self.fitnessProportionalWindowing(pop, fit_pop)
+				if gen > self.config.generations / 2:
+					with open(self.config.experiment_name + '/results.txt', 'a') as f:
+						f.write('\n switch to windowing')
+					parent1 = self.fitnessProportionalWindowing(pop, fit_pop)
+					parent2 = self.fitnessProportionalWindowing(pop, fit_pop)
+				else:
+					parent1, parent2 = self.tournament(pop, fit_pop)
 			elif self.config.fitness_selection == "sigma_scaling":
-				parent1 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
-				parent2 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
+				if gen > self.config.generations / 2:
+					with open(self.config.experiment_name + '/results.txt', 'a') as f:
+						f.write('\n switch to Sigma Scaling')
+					parent1 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
+					parent2 = self.fitnessProportionalSigmaScaling(pop, fit_pop, mean, std)
+				else:
+					parent1, parent2 = self.tournament(pop, fit_pop)
 			n_offsp = np.random.randint(1, 4, 1)[0]
 			offsp = np.zeros((n_offsp, self.n_weights))
 			for f in range(0, n_offsp):
@@ -281,6 +291,9 @@ class OptimizationEA:
 					best = np.argmax(fit_pop)
 					std = np.std(fit_pop)
 					mean = np.mean(fit_pop)
+					if best_sol != fit_pop[best]:
+						print("Best solution got selected out")
+						x  =1
 					results[str(enemies)][run]["means"].append(mean)
 					results[str(enemies)][run]["maximums"].append(fit_pop[best])
 					# saves results
