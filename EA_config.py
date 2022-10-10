@@ -32,6 +32,7 @@ class EAConfig:
         self.selection_algorithm = self.params["selection_algorithm"]
         self.fitness_selection = self.params["fitness_selection"]
         self.n_runs = self.params["n_runs"]
+        self.test_EA_dir = self.params["test_EA_dir"]
         if self.headless:
             os.environ["SDL_VIDEODRIVER"] = "dummy"
 

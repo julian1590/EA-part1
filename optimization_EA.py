@@ -235,11 +235,12 @@ class OptimizationEA:
 
 	def run(self):
 		if self.config.run_mode == 'test':
-					bsol = np.loadtxt(self.config.experiment_name + '/best.txt')
-					print('\n RUNNING SAVED BEST SOLUTION \n')
-					self.env.update_parameter('speed', 'normal')
-					self.evaluate([bsol])
-					sys.exit(0)
+			bsol = np.loadtxt(self.config.test_EA_dir + '/best.txt')
+			print('\n RUNNING SAVED BEST SOLUTION \n')
+			self.env = self.config.init_environment(self.config.enemies[0], 0)
+			self.env.update_parameter('speed', 'normal')
+			self.evaluate([bsol])
+			sys.exit(0)
 
 		results = self.create_results_dict(self.config.n_runs, self.config.enemies)
 		for enemies in self.config.enemies:
