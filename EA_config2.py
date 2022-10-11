@@ -5,9 +5,9 @@ sys.path.insert(0, 'evoman')
 from environment import Environment
 from demo_controller import player_controller
 
-class EAConfig:
+class EAConfig2:
     def __init__(self):
-        with open("EA_config.json") as f:
+        with open("EA_config2.json") as f:
             self.params = json.load(f)
         self.n_hidden_neurons = self.params["n_hidden_neurons"]
         self.enemies = self.params["enemies"]
@@ -52,7 +52,7 @@ class EAConfig:
         return env
 
     def create_experiment_name(self, enemy, run):
-        experiment_name = f"enemy_{enemy}_PlayerWeight-{self.player_life_weight}_fitSelect-{self.fitness_selection}_experiment_pop-{self.n_pop}_tourn_size-{self.tournament_size}_selec-{self.selection_algorithm}_cross-{self.crossover_algorithm}_mut-{self.mutation_algorithm}_mutProb-{self.mutation_prob}"
+        experiment_name = f"EA2_enemy_{enemy}_PlayerWeight-{self.player_life_weight}_fitSelect-{self.fitness_selection}_experiment_pop-{self.n_pop}_tourn_size-{self.tournament_size}_selec-{self.selection_algorithm}_cross-{self.crossover_algorithm}_mut-{self.mutation_algorithm}_mutProb-{self.mutation_prob}"
         if self.mutation_algorithm == "gauss":
             experiment_name += f"_mu-{self.mu}_sigma-{self.sigma}"
         if self.crossover_algorithm == "k_point":

@@ -162,23 +162,22 @@ class OptimizationEA:
 				elif self.config.crossover_algorithm == 'k_point':
 					parent1, parent2 = self.kPointCrossover(parent1, parent2)
 				offsp[f] = parent1 + parent2
-				# Mutation
-				if self.config.mutation_algorithm == "gauss":
+			# Mutation
+			if self.config.mutation_algorithm == "gauss":
+				mut_offsp = self.mutGuass(offsp)
+			elif self.config.mutation_algorithm == "cauchy":
+				mut_offsp = self.mutCauchy(offsp)
+			elif self.config.mutation_algorithm == "switch":
+				# decrease sigma to switch to exploitation after 15 gens
+				if gen > self.config.generations/2:
 					mut_offsp = self.mutGuass(offsp)
-				elif self.config.mutation_algorithm == "cauchy":
+				else:
 					mut_offsp = self.mutCauchy(offsp)
-				elif self.config.mutation_algorithm == "switch":
-					# decrease sigma to switch to exploitation after 15 gens
-					if gen > self.config.generations/2:
-						mut_offsp = self.mutGuass(offsp)
-					else:
-						mut_offsp = self.mutCauchy(offsp)
-					# 	self.config.mu = 0.5
-					# 	self.config.sigma = 0.2
-					# mut_offsp = self.mutGuass(offsp)
+
+			for f in range(0, n_offsp):
 				mut_offsp[f] = np.array(list(map(lambda y: self.limits(y), mut_offsp[f])))
 
-				total_offspring = np.vstack((total_offspring, mut_offsp))
+			total_offspring = np.vstack((total_offspring, mut_offsp))
 		return total_offspring
 
 	# kills the worst genomes, and replace with new best/random solutions

@@ -52,7 +52,7 @@ class EAConfig:
         return env
 
     def create_experiment_name(self, enemy, run):
-        experiment_name = f"enemy_{enemy}_PlayerWeight-{self.player_life_weight}_fitSelect-{self.fitness_selection}_experiment_pop-{self.n_pop}_tourn_size-{self.tournament_size}_selec-{self.selection_algorithm}_cross-{self.crossover_algorithm}_mut-{self.mutation_algorithm}_mutProb-{self.mutation_prob}"
+        experiment_name = f"EA1_enemy_{enemy}_PlayerWeight-{self.player_life_weight}_fitSelect-{self.fitness_selection}_experiment_pop-{self.n_pop}_tourn_size-{self.tournament_size}_selec-{self.selection_algorithm}_cross-{self.crossover_algorithm}_mut-{self.mutation_algorithm}_mutProb-{self.mutation_prob}"
         if self.mutation_algorithm == "gauss":
             experiment_name += f"_mu-{self.mu}_sigma-{self.sigma}"
         if self.crossover_algorithm == "k_point":
