@@ -1,0 +1,29 @@
+{
+  "enemies": [[1, 2, 3, 4, 5, 6, 7, 8]],
+  "playermode": "ai",
+  "n_hidden_neurons": 10,
+  "enemymode": "static",
+  "multiplemode": "yes",
+  "level": 2,
+  "speed": "fastest",
+  "headless": false,
+
+  "run_mode": "test",
+  "test_EA_dir": "enemy_[5, 7, 8]_PlayerWeight-0.1_fitSelect-windowing_experiment_pop-110_tourn_size-2_selec-default_cross-k_point_mut-switch_mutProb-0.7_k-10_run-0",
+  "n_runs": 1,
+  "dom_u" : 10,
+  "dom_l" : -10,
+  "npop" : 110,
+  "generations" : 30,
+  "mutation_algorithm": "switch",
+  "mutation_prob" : 0.7,
+  "fitness_selection": "sigma_scaling",
+  "player_life_weight": 0.2,
+
+  "tournament_size": 2,
+  "crossover_algorithm": "k_point",
+  "selection_algorithm": "default",
+  "k_points": 10,
+  "mu": 0.2,
+  "sigma": 0.5
+}
