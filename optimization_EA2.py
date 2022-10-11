@@ -145,7 +145,7 @@ class OptimizationEA2:
 			total_offspring = np.vstack((total_offspring, mut_offsp))
 		# Rechenberg ratio
 		ratio = successful_mutation / total_mutations
-		if ratio < 0.2:
+		if ratio < 0.2 and (self.config.sigma - 0.1) >= 0.0:
 			self.config.sigma -= 0.1
 		else:
 			self.config.sigma += 0.1
