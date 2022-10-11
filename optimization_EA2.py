@@ -208,6 +208,8 @@ class OptimizationEA2:
 				not_improved = 0
 				for i in range(ini_g + 1, self.config.generations):
 					offspring, fit_offspring = self.kissland(pop, fit_pop, mean, std, i)
+					with open(self.config.experiment_name + '/results.txt', 'a') as f:
+						f.write(f'\n current sigma {self.config.sigma}')
 					pop = np.vstack((pop, offspring))
 					fit_pop = np.append(fit_pop, fit_offspring)
 

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;EA2 implemented&quot;" />
+    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;sigma limited to &gt; 0.0&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/optimization_EA2.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_EA2.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -210,11 +213,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Optimization2" />
       <item itemvalue="Python.boxplots" />
       <item itemvalue="Python.controller_specialist_demo" />
       <item itemvalue="Python.demo_optimize" />
       <item itemvalue="Python.optimization" />
+      <item itemvalue="Python.Optimization2" />
       <item itemvalue="Python.run test" />
     </list>
   </component>
@@ -355,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665491908944</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="&quot;sigma limited to &gt; 0.0&quot;">
+      <created>1665493618464</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1665493618464</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +401,8 @@
     <MESSAGE value="&quot;no switch for proportional, always on or always off&quot;" />
     <MESSAGE value="&quot;copies for EA2&quot;" />
     <MESSAGE value="&quot;EA2 implemented&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;EA2 implemented&quot;" />
+    <MESSAGE value="&quot;sigma limited to &gt; 0.0&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;sigma limited to &gt; 0.0&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -408,7 +419,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/optimization_EA2.py</url>
-          <line>218</line>
+          <line>220</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
