@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;Fitness function with own definition of player vs enemy life weight&quot;">
+    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;no switch for proportional, always on or always off&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EA_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/optimization_EA.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_EA.py" afterDir="false" />
@@ -304,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665421949679</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="&quot;no switch for proportional, always on or always off&quot;">
+      <created>1665422783463</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1665422783463</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,20 +343,31 @@
     <MESSAGE value="&quot;removed switch log&quot;" />
     <MESSAGE value="&quot;Testing on all enemies. Give dir of EA to test on&quot;" />
     <MESSAGE value="&quot;Fitness function with own definition of player vs enemy life weight&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Fitness function with own definition of player vs enemy life weight&quot;" />
+    <MESSAGE value="&quot;no switch for proportional, always on or always off&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;no switch for proportional, always on or always off&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/optimization_EA.py</url>
-          <line>290</line>
+          <line>272</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/optimization_EA.py</url>
           <line>57</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/demo_controller.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/demo_controller.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -69,7 +69,7 @@ class OptimizationEA:
 	def evaluate(self, x):
 		return np.array(list(map(lambda y: self.simulation(y), x)))
 
-	def tournament2(self, pop, fit_pop, k=2):
+	def tournament(self, pop, fit_pop, k=2):
 		selected = []
 		for i in range(k):
 			children_indices = np.random.randint(0, pop.shape[0], self.config.tournament_size)
@@ -78,24 +78,6 @@ class OptimizationEA:
 			fittest_index = children_indices[fittest_child]
 			selected.append(pop[fittest_index])
 		return selected
-
-	def tournament1(self, pop, fit_pop):
-		c1 = np.random.randint(0, pop.shape[0], 1)
-		c2 = np.random.randint(0, pop.shape[0], 1)
-
-		if fit_pop[c1] > fit_pop[c2]:
-			return pop[c1][0]
-		else:
-			return pop[c2][0]
-
-	def fitnessProportional(self, pop, fit_pop):
-		c1 = np.random.randint(0, pop.shape[0], 1)
-		c2 = np.random.randint(0, pop.shape[0], 1)
-		sum_fitness = np.sum(fit_pop)
-		if (fit_pop[c1] / sum_fitness) > (fit_pop[c2] / sum_fitness):
-			return pop[c1][0]
-		else:
-			return pop[c2][0]
 
 	def fitnessProportionalWindowing(self, pop, fit_pop):
 		c1 = np.random.randint(0, pop.shape[0], 1)
@@ -164,7 +146,7 @@ class OptimizationEA:
 		for p in range(0, pop.shape[0], 2):
 			# Selection
 			if self.config.fitness_selection == "tournament":
-				parent1, parent2 = self.tournament2(pop, fit_pop)
+				parent1, parent2 = self.tournament(pop, fit_pop)
 			elif self.config.fitness_selection == "windowing":
 				parent1 = self.fitnessProportionalWindowing(pop, fit_pop)
 				parent2 = self.fitnessProportionalWindowing(pop, fit_pop)
