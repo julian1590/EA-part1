@@ -115,6 +115,18 @@ class OptimizationEA2:
 		successfull_mutations = np.where(fit_offspring > max(p1_fitness, p2_fitness), 1, 0)
 		return sum(successfull_mutations), len(successfull_mutations), fit_offspring
 
+	def rechenBerg(self, gen):
+		# Scale mutation scale depending on rechenberg principle
+		ratio = successful_mutation / total_mutations
+		c = 0.9
+		if gen % 5 == 0:
+			if ratio < 0.2 and (self.config.sigma*c) >= 0.0:
+				self.config.sigma = self.config.sigma*c
+			elif ratio > 0.2 and (self.config.sigma/c) >= 0.0:
+				self.config.sigma = self.config.sigma/c
+			elif ratio == 0.2:
+				self.config.sigma = self.config.sigma
+
 	# crossover
 	def kissland(self, pop, fit_pop, mean, std, gen):
 		total_offspring = np.zeros((0, self.n_weights))
@@ -143,12 +155,7 @@ class OptimizationEA2:
 			total_mutations += n_mutations
 			fit_offspring = np.append(fit_offspring, fit_offsp)
 			total_offspring = np.vstack((total_offspring, mut_offsp))
-		# Rechenberg ratio
-		ratio = successful_mutation / total_mutations
-		if ratio < 0.2 and (self.config.sigma - 0.1) >= 0.0:
-			self.config.sigma -= 0.1
-		else:
-			self.config.sigma += 0.1
+		self.rechenBerg(gen)
 		return total_offspring, fit_offspring
 
 	def purge(self, pop, fit_pop):

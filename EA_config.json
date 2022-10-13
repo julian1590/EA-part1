@@ -1,5 +1,5 @@
 {
-  "enemies": [[7, 8]],
+  "enemies": [[4, 6, 7]],
   "playermode": "ai",
   "n_hidden_neurons": 10,
   "enemymode": "static",
