@@ -247,7 +247,6 @@ class OptimizationEA2:
 					mean = np.mean(fit_pop)
 					if best_sol != fit_pop[best]:
 						print("Best solution got selected out")
-						x  =1
 					results[str(enemies)][run]["means"].append(mean)
 					results[str(enemies)][run]["maximums"].append(fit_pop[best])
 					# saves results
