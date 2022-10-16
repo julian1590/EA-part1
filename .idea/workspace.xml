@@ -4,24 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;devision of sigma by2&quot;">
-      <change afterPath="$PROJECT_DIR$/EA2-enemy[7, 8].png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/final_results_EA1_7_8.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/final_results_[3, 7, 8].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/final_results_[7, 8].json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/read_logs.py" afterDir="false" />
+    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;read results file&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/boxplots-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/boxplots-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boxplots.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/boxplots.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/best.txt" beforeDir="false" afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/best.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/evoman_logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/evoman_logs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/evoman_solstate" beforeDir="false" afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/evoman_solstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/results.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/best.txt" beforeDir="false" afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/best.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/evoman_logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/evoman_logs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/evoman_solstate" beforeDir="false" afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/evoman_solstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/results.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/optimization_EA2.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_EA2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-0/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-0/results.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-1/results.txt" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-1/results.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_results_[3, 7, 8].json" beforeDir="false" afterPath="$PROJECT_DIR$/final_results_[3, 7, 8].json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi_demo/best.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi_demo/evoman_logs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi_demo/evoman_paramstate.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi_demo/evoman_solstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi_demo/gen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi_demo/neuroended" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi_demo/results.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -421,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665913890143</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="&quot;read results file&quot;">
+      <created>1665920480207</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1665920480207</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +463,8 @@
     <MESSAGE value="&quot;added current sigma to log&quot;" />
     <MESSAGE value="&quot;Dynamic Mutation rate based on rechenBerg&quot;" />
     <MESSAGE value="&quot;devision of sigma by2&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;devision of sigma by2&quot;" />
+    <MESSAGE value="&quot;read results file&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;read results file&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
