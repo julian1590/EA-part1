@@ -172,7 +172,7 @@ class OptimizationEA:
 				if gen > self.config.generations/2:
 					mut_offsp = self.mutGuass(offsp)
 				else:
-					mut_offsp = self.mutCauchy(offsp)
+					self.config.sigma = self.config.sigma/2
 
 			for f in range(0, n_offsp):
 				mut_offsp[f] = np.array(list(map(lambda y: self.limits(y), mut_offsp[f])))
@@ -219,10 +219,12 @@ class OptimizationEA:
 			self.evaluate([bsol])
 			sys.exit(0)
 
+		original_sigma = self.config.sigma
 		results = self.create_results_dict(self.config.n_runs, self.config.enemies)
 		for enemies in self.config.enemies:
 			for run in range(self.config.n_runs):
 				start = time.time()
+				self.config.sigma = original_sigma
 				self.env = self.config.init_environment(enemies, run)
 				# Set the fitness function
 				self.env.fitness_single = self.customFitness

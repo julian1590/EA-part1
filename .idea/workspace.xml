@@ -4,10 +4,150 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;added current sigma to log&quot;">
+    <list default="true" id="04abc82b-e72e-4bd4-b12d-b323bede5819" name="Default Changelist" comment="&quot;Dynamic Mutation rate based on rechenBerg&quot;">
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-0/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-0/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-0/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-0/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-0/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-0/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-0/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-1/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-1/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-1/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-1/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-1/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-1/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-1/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-2/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-2/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-2/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-2/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-2/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-2/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-2/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-3/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-3/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-3/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-3/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-3/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-3/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-3/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-4/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-4/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-4/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-4/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-4/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-4/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-4/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-5/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-5/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-5/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-5/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-5/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-5/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-5/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-6/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-6/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-6/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-6/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-6/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-6/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-6/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-7/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-7/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-7/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-7/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-7/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-7/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-7/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-8/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-8/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-8/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-8/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-8/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-8/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-8/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-9/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-9/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-9/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-9/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-9/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-9/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiment_[3, 7, 8]/EA2_enemy_[3, 7, 8]_run-9/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-0/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-1/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-2/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-2/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-2/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-2/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-2/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-2/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-2/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-3/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-3/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-3/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-3/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-3/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-3/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-3/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-4/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-4/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-4/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-4/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-4/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-4/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-4/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-5/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-5/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-5/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-5/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-5/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-5/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-5/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-6/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-6/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-6/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-6/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-6/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-6/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-6/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-7/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-7/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-7/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-7/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-7/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-7/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-7/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-8/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-8/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-8/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-8/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-8/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-8/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-8/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-9/best.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-9/evoman_logs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-9/evoman_paramstate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-9/evoman_solstate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-9/gen.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-9/neuroended" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments_[7, 8]/EA2_enemy_[7, 8]_run-9/results.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EA_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EA_config2.json" beforeDir="false" afterPath="$PROJECT_DIR$/EA_config2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/optimization_EA.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_EA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/optimization_EA2.py" beforeDir="false" afterPath="$PROJECT_DIR$/optimization_EA2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -374,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665494972264</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="&quot;Dynamic Mutation rate based on rechenBerg&quot;">
+      <created>1665685992897</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1665685992897</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,14 +559,15 @@
     <MESSAGE value="&quot;EA2 implemented&quot;" />
     <MESSAGE value="&quot;sigma limited to &gt; 0.0&quot;" />
     <MESSAGE value="&quot;added current sigma to log&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;added current sigma to log&quot;" />
+    <MESSAGE value="&quot;Dynamic Mutation rate based on rechenBerg&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Dynamic Mutation rate based on rechenBerg&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/optimization_EA.py</url>
-          <line>271</line>
+          <line>273</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -429,7 +577,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/optimization_EA2.py</url>
-          <line>227</line>
+          <line>229</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>

@@ -115,11 +115,11 @@ class OptimizationEA2:
 		successfull_mutations = np.where(fit_offspring > max(p1_fitness, p2_fitness), 1, 0)
 		return sum(successfull_mutations), len(successfull_mutations), fit_offspring
 
-	def rechenBerg(self, gen):
+	def rechenBerg(self, gen, successful_mutations, total_mutations):
 		# Scale mutation scale depending on rechenberg principle
-		ratio = successful_mutation / total_mutations
+		ratio = successful_mutations / total_mutations
 		c = 0.9
-		if gen % 5 == 0:
+		if gen % 2 == 0:
 			if ratio < 0.2 and (self.config.sigma*c) >= 0.0:
 				self.config.sigma = self.config.sigma*c
 			elif ratio > 0.2 and (self.config.sigma/c) >= 0.0:
@@ -131,7 +131,7 @@ class OptimizationEA2:
 	def kissland(self, pop, fit_pop, mean, std, gen):
 		total_offspring = np.zeros((0, self.n_weights))
 		fit_offspring = np.array([])
-		successful_mutation = 0
+		successful_mutations = 0
 		total_mutations = 0
 		for _ in range(0, pop.shape[0], 2):
 			# Selection
@@ -151,11 +151,11 @@ class OptimizationEA2:
 			for f in range(0, n_offsp):
 				mut_offsp[f] = np.array(list(map(lambda y: self.limits(y), mut_offsp[f])))
 			successful, n_mutations, fit_offsp = self.getSuccessfullMutations(mut_offsp, p1_fitness, p2_fitness)
-			successful_mutation += successful
+			successful_mutations += successful
 			total_mutations += n_mutations
 			fit_offspring = np.append(fit_offspring, fit_offsp)
 			total_offspring = np.vstack((total_offspring, mut_offsp))
-		self.rechenBerg(gen)
+		self.rechenBerg(gen, successful_mutations, total_mutations)
 		return total_offspring, fit_offspring
 
 	def purge(self, pop, fit_pop):
@@ -199,6 +199,8 @@ class OptimizationEA2:
 		results = self.create_results_dict(self.config.n_runs, self.config.enemies)
 		for enemies in self.config.enemies:
 			for run in range(self.config.n_runs):
+				# reset sigma
+				self.config.sigma = 1.0
 				start = time.time()
 				self.env = self.config.init_environment(enemies, run)
 				# Set the fitness function
